@@ -1,6 +1,5 @@
 .home {
     min-height: 150vh;
-    /* width: 100vw; */
     font-family: 'Architects Daughter', cursive;
 }
 
@@ -38,7 +37,6 @@ section p {
 .home-header h1, .home-header h2 {
     margin: 0;
     padding-left: 5%;
-    /* color: #b39809; */
     text-shadow: 0 0.1em 0.1em black;
 }
 
@@ -64,13 +62,8 @@ section p {
     padding: 0 1em;
 }
 
-.home-about p {
-    
-}
-
 .home-about .home-about__container {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -136,18 +129,15 @@ section p {
 
 /* CHARACTERS */
 .home-characters {
-    /* background: url("https://www.filmawka.pl/wp-content/uploads/2020/03/4.jpg"); */
     background: url("https://wallpaperaccess.com/full/983279.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-attachment: fixed; */
     height: 80vh;
 }
 
 .home-characters__container {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     padding: 3em 0;
 }
@@ -158,10 +148,6 @@ section p {
 
 .home-characters__container span {
     margin-right: 1em;
-}
-
-.home-characters__container-image {
-    
 }
 
 .home-characters button {

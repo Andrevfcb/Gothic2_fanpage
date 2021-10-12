@@ -1,0 +1,98 @@
+.shoop {
+    font-family: 'Architects Daughter', cursive;
+    background: url("https://wallpaperaccess.com/full/983279.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.shoop-image {
+    background: url("https://img6.gram.pl/jnwy20200415113437188kfnx.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50vh;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.shoop h1 {
+    padding-top: 2em;
+    margin: 0;
+    padding-left: 5%;
+    text-shadow: 0 0.1em 0.1em black;
+}
+
+.shoop input {
+    width: 20%;
+    font: inherit;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    padding: 0.15rem 0.25rem;
+    margin-top: 2em;
+    border-radius: 5px;
+}
+
+.shoop input:focus {
+    outline: none;
+    background: #ebebeb;
+    border-color: #510077;
+  }
+
+.shoop .shoop-items {
+    display: flex;
+    padding: 2em;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    min-height: 20vh;
+}
+
+.shoop a {
+    margin: 3em;
+    text-align: center;
+    color: #b39809;
+    text-decoration: none;
+}
+
+.shoop .item-card {
+    height: 30vh;
+    transition: 1s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 25vw;
+}
+
+.shoop .item-card:hover {
+    transform: scale(1.1);
+}
+
+.shoop .item-card__image {
+    flex-grow: 1;
+    height: 70%;
+}
+
+.shoop .item-card img {
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 0.2em;
+}
+
+.shoop .item-card__info {
+    align-items: center;
+    height: 30%;
+}
+
+.shoop .item-card__info p {
+    width: 100%;
+    padding: 0.2em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+

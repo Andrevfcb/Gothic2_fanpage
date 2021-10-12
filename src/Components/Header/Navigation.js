@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const MENU = ["Home", "Characters", "Shoop", "Contact"]
+import { AuthContext } from '../context/auth-context'
+import Avatar from '../UIElements/Avatar';
 
-const Navigation = () => {
+const MENU = ["Home", "Characters", "Store", "Contact"]
 
-    const menu = MENU.map(m => 
+const Navigation = ({ openModal }) => {
+
+    const auth = useContext(AuthContext);
+
+    const menu = MENU.map((m, id) => 
     {
         let mroute
         if (m === "Home") {
@@ -13,7 +18,8 @@ const Navigation = () => {
         } else {
             mroute = "/" + m.toLowerCase()
         }
-        return (<li>
+        
+        return (<li className="main-navigation" key={id}>
         <NavLink to={mroute}
         exact={`${m === "Home" ? true : false}`}
         >
@@ -23,16 +29,29 @@ const Navigation = () => {
         )
         
     return (
+        
         <ul className='nav'>
            {menu}
-            <li className="user-navigation">
+            
+            {!auth.isLoggedIn && <li className="user-navigation" id="auth" onClick={openModal}>
                 Login
-            </li>
-            <li className="user-navigation">
-                <NavLink to=":uid">
-                UserAvatar
+            </li>}
+            {auth.isLoggedIn && <li className="user-navigation" id="auth" onClick={auth.logout}>
+                Logout
+            </li>}
+            
+            {auth.isLoggedIn && <li className="user-navigation" id="cart" onClick={openModal}>
+            <i class="fas fa-shopping-cart"></i>
+            </li>}
+            {auth.isLoggedIn &&
+               <li className="user-navigation" onClick={() => console.log(auth.userId)
+               }><Avatar image={`${process.env.REACT_APP_BACKEND_URL}/${auth.avatar}`} alt="avatar" /></li> 
+            }
+            {auth.isLoggedIn && (auth.role === "admin") && <li className="user-navigation" id="admin">
+            <NavLink to="/admin">
+                Admin
                 </NavLink>
-            </li>
+                </li>}
         </ul>
     )
 }

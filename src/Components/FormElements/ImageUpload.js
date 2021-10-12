@@ -7,6 +7,9 @@ const ImageUpload = props => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(false);
+  const [images, setImages] = useState([]);
+  const [imagesValue, setImagesValue] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
 
   const filePickerRef = useRef();
 
@@ -15,30 +18,79 @@ const ImageUpload = props => {
       return;
     }
     const fileReader = new FileReader();
+    let allImages = images
     fileReader.onload = () => {
+      if (props.id === "images") {
+        allImages.push(fileReader.result)
+        setImages(allImages);
+      }
       setPreviewUrl(fileReader.result);
     };
     fileReader.readAsDataURL(file);
   }, [file]);
-
+  
   const pickedHandler = event => {
     let pickedFile;
+    let newImagesValue
     let fileIsValid = isValid;
+    setImagesValue([
+      ...imagesValue,
+      event.target.files[0]
+    ]);
     if (event.target.files && event.target.files.length === 1) {
       pickedFile = event.target.files[0];
       setFile(pickedFile);
+      newImagesValue = [
+        ...imagesValue,
+        pickedFile
+      ]
       setIsValid(true);
       fileIsValid = true;
     } else {
       setIsValid(false);
       fileIsValid = false;
     }
-    props.onInput(props.id, pickedFile, fileIsValid);
+    let onInputImgValue
+    if (props.id === "images") {onInputImgValue = newImagesValue} else {onInputImgValue = pickedFile}
+    if (props.id === "image") console.log("image" );
+    else if (!(props.id === "image")) console.log("images" );
+    
+    props.onInput(props.id, onInputImgValue, fileIsValid);
   };
 
   const pickImageHandler = () => {
     filePickerRef.current.click();
   };
+
+  const deleteImage = (e) => {
+    setSelectedId(e.target.id)
+    const newImages = images
+    const newImagesValue = imagesValue
+    if (newImages.length > 0) {
+    newImages.splice(e.target.id, 1);
+    newImagesValue.splice(e.target.id, 1);
+    setImages(newImages)
+    setImagesValue(newImagesValue)
+    setSelectedId(null)
+    }
+    let fileIsValid = isValid;
+    if (newImagesValue.length > 1) {
+      setIsValid(true);
+      fileIsValid = true;
+    } else {
+      setIsValid(false);
+      fileIsValid = false;
+    }
+    props.onInput(props.id, newImagesValue, fileIsValid);
+  };
+
+  const imageArea = images.map((i, id) => 
+  (<div style={{height: "100%", width: "100%"}} key={id}>
+  <img src={i} alt="Preview" id={id} onClick={deleteImage}
+  style={{cursor: 'pointer'}}/>
+  </div>
+  )
+  )
 
   return (
     <div className="form-control">
@@ -52,14 +104,16 @@ const ImageUpload = props => {
       />
       <div className={`image-upload ${props.center && 'center'}`}>
         <div className="image-upload__preview">
-          {previewUrl && <img src={previewUrl} alt="Preview" />}
-          {!previewUrl && <p>Please pick an image.</p>}
+          {props.id === "images" && images.length > 0 && imageArea}
+          {!(props.id === "images") && previewUrl && <img src={previewUrl} alt="Preview" />}
+          {props.id === "images" && !images.length > 0 && <p>Please pick an image.</p>}
+          {!(props.id === "images") && !previewUrl && <p>Please pick an image.</p>}
+          
         </div>
         <Button type="button" onClick={pickImageHandler}>
           PICK IMAGE
         </Button>
       </div>
-      {!isValid && <p>{props.errorText}</p>}
     </div>
   );
 };

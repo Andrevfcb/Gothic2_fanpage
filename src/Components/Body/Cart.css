@@ -1,0 +1,75 @@
+.cart {
+    font-family: 'Architects Daughter', cursive;
+}
+
+.cart .cart-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    text-align: center;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.cart .cart-container p {
+    padding: 1em 0;
+}
+
+.cart .cart-container .card {
+    margin: 2em 0;
+    width: 90%;
+}
+
+.cart-container__items div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid;
+    position: relative;
+}
+
+.cart-container__items .cart-container__items-info span {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform:translateY(-50%);
+    cursor: pointer;
+    display: none;
+}
+
+.cart-container__items .cart-container__items-info:hover {
+    background-color: lightgrey;
+}
+
+.cart-container__items .cart-container__items-info:hover span {
+    display: inline-block;
+}
+
+.cart-container__items div:nth-child(1) {
+    color: black;
+    font-weight: bold;
+}
+
+.cart-container__items div p {
+    width: 15%;
+    margin: auto;
+    padding: 1em;
+}
+
+.cart-container__items div p:nth-child(1) {
+    flex-grow: 1;
+    
+}
+
+.cart-container__items div p:nth-child(2) {
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+
+.cart-container__items div:nth-child(1),
+.cart-container__items div:nth-child(1) p {
+    border-color: #b39809;
+}
+

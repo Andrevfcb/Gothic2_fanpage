@@ -1,0 +1,58 @@
+.character {
+    font-family: 'Architects Daughter', cursive;
+}
+
+.character-image {
+    background: url("https://img6.gram.pl/jnwy20200415113437188kfnx.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50vh;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.character h1 {
+    padding-top: 2em;
+    margin: 0;
+    padding-left: 5%;
+    text-shadow: 0 0.1em 0.1em black;
+}
+
+.character .character-container {
+    background: url("https://wallpaperaccess.com/full/983279.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.character .character-container img {
+    border-radius: 5px;
+    float: left;
+    margin: 2em;
+    box-shadow: 0 0 0.3em;
+    max-height: 70vh;
+}
+
+.character .character-container p {
+    padding: 0 1em;
+    color: white;
+    padding-bottom: 2em;
+}
+
+.character div {
+    padding: 0.5em;
+}
+
+.character h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.character button {
+    margin-left: 2em;
+}

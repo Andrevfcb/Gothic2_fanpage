@@ -1,0 +1,132 @@
+.item {
+    font-family: 'Architects Daughter', cursive;
+}
+
+.item-image {
+    background: url("https://img6.gram.pl/jnwy20200415113437188kfnx.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50vh;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.item h1 {
+    padding-top: 2em;
+    margin: 0;
+    padding-left: 5%;
+    text-shadow: 0 0.1em 0.1em black;
+}
+
+.item .item-container {
+    background: url("https://wallpaperaccess.com/full/983279.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2em;
+}
+
+.item-container .item-container__image,
+.item-container .item-container__info {
+    height: 100vh;
+}
+
+.item-container .item-container__image {
+    width: 30%;
+    padding-bottom: 3em;
+}
+
+.item-container__image .item-container__image-main {
+    width: 100%;
+    height: 70%;
+    border: 1px solid;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1em 0;
+    box-shadow: 0 0 0.5em;
+    position: relative;
+}
+
+.item-container__image .item-container__image-main img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    cursor: move;
+}
+
+.item-container__image .item-container__image-rest {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: start;
+}
+
+.item-container__image .item-container__image-rest img {
+    height: auto;
+    width: 100px;
+    object-fit: cover;
+    margin: 0.5em 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 0.3em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.item-container__image .item-container__image-rest img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.item-container__image .item-container__image-rest .active {
+    border: 2px solid;
+    opacity: 0.5;
+}
+
+.item-container__image .item-container__image-rest .active:hover {
+    transform: scale(1);
+    opacity: 0.5;
+}
+
+.item-container .item-container__info {
+    padding: 0 2em;
+}
+
+.item-container .item-container__info span {
+    color: white;
+    
+}
+
+.item-container__info-quantity {
+    padding-bottom: 1em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.item-container__info-quantity .button-quantity {
+    padding: 0.5em 1em;
+    margin: 0 1em;
+    font-size: 1em;
+    border-radius: 20%;
+    border: none;
+    color: #b39809;
+    cursor: pointer;
+}
+
+.item-container__info-quantity div {
+    width: 50%;
+    margin: auto;
+}
+
+.item-container__info-quantity span {
+    display: inline-block;
+    width: 1em;
+}

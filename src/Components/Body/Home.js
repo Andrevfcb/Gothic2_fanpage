@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Home.css";
 import xardas from "../../Images/xardas.png";
 import khorinis from "../../Images/khorinis.jpg";
@@ -10,7 +10,15 @@ import hero from "../../Images/bezi.png";
 
 import Button from "../FormElements/Button"
 
+import { Link } from 'react-router-dom';
+
+
 const Home = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0) 
+    }, [])
+
     return (
         <div className="home">
 
@@ -58,7 +66,7 @@ const Home = () => {
                 <img src={Diego} alt="Diego" className="diego"></img>
                 <img src={sword} alt="Sword" className="sword"></img>
                 <img src={skull} alt="Skull" className="skull"></img>
-                <Button>GO TO SHOOP SECTION</Button>
+                <Link to="/store"><Button>GO TO SHOOP SECTION</Button></Link>
             </section>
             <section className='home-characters'>
                 <div className="home-characters__container">
@@ -74,12 +82,12 @@ const Home = () => {
                         <img src={hero} alt="Hero" className="hero"></img>
                     </div> 
                 </div>
-                <Button>GO TO CHARACTERS SECTION</Button>
+                <Link to="/characters"><Button>GO TO CHARACTERS SECTION</Button></Link>
             </section>
             <section className='home-contact'>
                 <h2>Contact with us!</h2>
                 <h3>Why don't you send us a message?</h3>
-                <Button>GO TO CONTACT SECTION</Button>
+                <Link to="/contact"><Button>GO TO CONTACT SECTION</Button></Link>
             </section>
         </div>
     )

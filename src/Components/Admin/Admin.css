@@ -1,0 +1,30 @@
+.admin {
+    display: flex;
+    padding-top: 5em;
+    /* justify-content: center; */
+    /* align-items: center; */
+    min-height: 61vh;
+    background-color: rgb(133, 131, 131);
+}
+
+.admin-navigation {
+    /* padding: 1em; */
+    padding-right: 3em;
+    font-size: 2em;
+    border-right: 2px solid black;
+    background: url("https://i.pinimg.com/originals/c7/d6/44/c7d6443c3e206f73ff8c105b5e7d1abb.jpg");
+}
+
+.admin-navigation li {
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+.admin-navigation li:hover {
+    color: black;
+}
+
+.admin-content {
+    padding-left: 2em;
+    text-align: center;
+}

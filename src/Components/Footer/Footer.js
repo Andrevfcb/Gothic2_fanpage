@@ -1,12 +1,14 @@
 import React from 'react';
 import "./Footer.css";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+
+import skull from "../../Images/skull.png";
 
 const MENU = ["Home", "Characters", "Shoop", "Contact"]
 
 const Footer = () => {
 
-    const menu = MENU.map(m => 
+    const menu = MENU.map((m, id) => 
         {
             let mroute
             if (m === "Home") {
@@ -14,7 +16,7 @@ const Footer = () => {
             } else {
                 mroute = "/" + m.toLowerCase()
             }
-            return (<li>
+            return (<li key={id}>
             <NavLink to={mroute}
             exact={`${m === "Home" ? true : false}`}
             >
@@ -25,9 +27,12 @@ const Footer = () => {
 
     return (
         <div className="footer">
-            <div className="footer-logo">
-                LOGO
+            <Link to= "/" exact>
+            <div className="footer-logo logo title">
+              <img src={skull} alt="Skull" className="skull"></img>
+              <span>Gothic II Fanpage</span>
             </div>
+            </Link>
             <div className="footer-menu">
                 <h3>MENU</h3>
                 <ul className="nav">
